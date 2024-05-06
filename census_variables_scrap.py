@@ -36,6 +36,9 @@ def scrap_variables():
     # Filter the dataframe for profile DP05
     filtered_df = df[df['Name'].str.startswith('DP05')]
 
+    # Filter for label with 'Estimate'
+    filtered_df = filtered_df[filtered_df['Label'].apply(lambda x: 'estimate' in str(x).lower())]
+
     # Re-index the filtered DataFrame
     filtered_df.reset_index(drop=True, inplace=True)
 
