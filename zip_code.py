@@ -5,8 +5,9 @@ from api_key import *
 def fetch_census_data(year, zip_code):
     api_key = my_key
     # List all the variables you're interested in
-    variables = ','.join(['B02001_001E', 'B02001_002E', 'B02001_003E', 'B02001_004E', 'B02001_005E', 'B02001_006E', 'B02001_007E', 'B02001_008E'])
-    url = f"https://api.census.gov/data/{year}/acs/acs5?get={variables}&for=zip%20code%20tabulation%20area:{zip_code}&key={api_key}"
+    # variables = ','.join(['B02001_001E', 'B02001_002E', 'B02001_003E', 'B02001_004E', 'B02001_005E', 'B02001_006E', 'B02001_007E', 'B02001_008E'])
+    variables = ','.join(['DP05_0045E', 'DP05_0046E'])
+    url = f"https://api.census.gov/data/{year}/acs/acs5/profile?get={variables}&for=zip%20code%20tabulation%20area:{zip_code}&key={api_key}"
 
     response = requests.get(url)
     if response.status_code == 200:
