@@ -1,11 +1,10 @@
 import requests
-import csv
+import pandas as pd
 from api_key import *
 
-def fetch_census_data(year, zip_code):
+def fetch_census_data(year, variables, zip_code):
     api_key = my_key
-    # List all the variables you're interested in
-    # variables = ','.join(['B02001_001E', 'B02001_002E', 'B02001_003E', 'B02001_004E', 'B02001_005E', 'B02001_006E', 'B02001_007E', 'B02001_008E'])
+    
     variables = ','.join(['DP05_0045E', 'DP05_0046E'])
     url = f"https://api.census.gov/data/{year}/acs/acs5/profile?get={variables}&for=zip%20code%20tabulation%20area:{zip_code}&key={api_key}"
 
@@ -16,27 +15,15 @@ def fetch_census_data(year, zip_code):
         print(f"Error fetching data: {response.status_code}")
         return None
 
-def save_to_csv(data, filename):
-    if data:
-        headers = data[0]  # First row is headers
-        rows = data[1:]  # Remaining rows are data
-
-        with open(filename, 'w', newline='') as file:
-            csv_writer = csv.writer(file)
-            csv_writer.writerow(headers)  # Write the header
-            csv_writer.writerows(rows)  # Write the data rows
-
 def main():
     # Usage example
+    # Searched from census_variables.csv. It can be extended as per the use
+    variables_dict = {'DP05_0045E': 'One race | Asian | Asian Indian', 'DP05_0046E': 'One race | Asian | Chinease'}
+    variables = list(variables_dict.keys())
     year = '2022'
     zip_code = '20871'  # Replace with your desired ZIP Code
-    data = fetch_census_data(year, zip_code)
+    data = fetch_census_data(year, variables, zip_code)
     print(data)
-    # if data:
-    #     save_to_csv(data, 'race_data.csv')
-    #     print("Data saved to 'race_data.csv'")
-    # else:
-    #     print("Failed to fetch or save data.")
 
 if __name__ == "__main__":
     main()
