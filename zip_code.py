@@ -17,10 +17,10 @@ def fetch_census_data(year, variables, zip_code):
         return None
 
 def main():
-    # Usage example
     # Searched from census_variables.csv, and can be extended to different codes
     variables_dict = {'DP05_0044E': 'One race | Asian', 'DP05_0045E': 'One race | Asian | Asian Indian', 'DP05_0046E': 'One race | Asian | Chinease'}
     variables = ','.join(list(variables_dict.keys()))
+    # print(variables)
     year = '2022'
     zip_code = '20871'  # Replace with your desired ZIP Code
     data = fetch_census_data(year, variables, zip_code)
