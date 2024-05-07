@@ -22,7 +22,7 @@ def main():
     variables = ','.join(list(variables_dict.keys()))
     # print(variables)
     year = '2022'
-    zip_code = '20871'  # Replace with your desired ZIP Code
+    zip_code = '20841' # Replace with your desired ZIP Code
     data = fetch_census_data(year, variables, zip_code)
     print(data)
 
