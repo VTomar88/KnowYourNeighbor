@@ -24,7 +24,7 @@ def main():
         city_state_zip_dict[f"{get_zip_codes(i, 'VA')[1]}-{get_zip_codes(i, 'VA')[2]}"] = get_zip_codes(i, 'VA')[0]
     
     # write a dataframe
-    df = pd.DataFrame(list(city_state_zip_dict.items()), columns=["City-State", "Zip Code"])
+    df = pd.DataFrame(list(city_state_zip_dict.items()), columns=["City-State", "Zip_Code"])
 
     return df.to_csv('city-state_zip-codes.csv', index=False)
 

@@ -1,4 +1,4 @@
-City-State,Zip Code
+City-State,Zip_Code
 Clarksburg-MD,['20871']
 Boyds-MD,['20841']
 Rockville-MD,"['20850', '20851', '20852', '20853']"
@@ -6,5 +6,5 @@ Germantown-MD,"['20874', '20876']"
 Gaithersburg-MD,"['20877', '20878', '20879', '20882']"
 Frederick-MD,"['21701', '21702', '21703', '21704']"
 Ashburn-VA,"['20147', '20148']"
-Beaumont-VA,['23014']
+Belmont-VA,['23014']
 Sterling-VA,"['20164', '20165', '20166']"
