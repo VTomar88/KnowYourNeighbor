@@ -13,7 +13,7 @@ def get_zip_codes(city, state):
 
 def main():
     # Get the cities for which zip codes are needed
-    cities_MD = ['Clarksburg', 'Boyds', 'Rockville', 'Germantown', 'Gaitherburg', 'Frederick']
+    cities_MD = ['Clarksburg', 'Boyds', 'Rockville', 'Germantown', 'Gaitherburg', 'Frederick', 'Potomac', 'North Potomac']
     cities_VA = ['Ashburn', 'Belmont', 'Sterling']
 
     city_state_zip_dict = {}
@@ -26,7 +26,7 @@ def main():
     # write a dataframe
     df = pd.DataFrame(list(city_state_zip_dict.items()), columns=["City-State", "Zip_Code"])
 
-    return df.to_csv('city-state_zip-codes.csv', index=False)
+    return df.to_csv('city-state_zip-codes_new.csv', index=False)
 
 if __name__ == "__main__":
     main()
